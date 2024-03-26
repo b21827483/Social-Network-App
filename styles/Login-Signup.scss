@@ -7,7 +7,7 @@
   }
 }
 
-.root {
+.auth-container{
   overflow: auto;
   width: 100% ;
   height: 100vh;
@@ -19,9 +19,12 @@
 
 
   .card {
+    padding: 2rem;
     display: flex;
-    width: 50%;
+    width: 60%;
     height: 80%;
+    border-radius: 5px;
+    overflow: hidden;
 
 
     .leftside {
@@ -30,10 +33,8 @@
       flex-direction: column;
       text-align: start;
       flex:1;
-      background-image: url("./src/assets/login-background.png");
+      background-image: url("../src/assets/login-background.png");
       background-size: cover;
-      border-bottom-left-radius: 5px;
-      border-top-left-radius: 5px;
 
       h1 {
         font-family: "Arial Black";
@@ -42,7 +43,7 @@
         color: #343131;
 
         @include respond(small) {
-          font-size: 30px;
+          font-size: 25px;
         }
       }
 
@@ -58,7 +59,8 @@
         }
 
         @include respond(small) {
-          font-size: 10px
+          padding-right: 1rem;
+          font-size: 15px
         }
       }
 
@@ -78,7 +80,7 @@
 
           @include respond(small) {
             margin-top: 0.5rem;
-            width: 100%;
+            width: 80%;
           }
 
           &:hover {
@@ -97,8 +99,6 @@
       padding: 1rem;
       justify-content: center;
       background: beige;
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
 
       h1 {
         font-size: 40px;
@@ -109,6 +109,7 @@
       form {
         display: flex;
         flex-direction: column;
+        padding: 1rem;
 
         .input-field {
           margin-bottom: 1.5rem;

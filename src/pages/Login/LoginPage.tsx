@@ -1,8 +1,8 @@
-import './LoginPage.scss'
+import '../../../styles/Login-Signup.scss'
 
 function LoginPage() {
     return (
-        <div className='root'>
+        <div className='auth-container'>
             <div className='card'>
                 <div className='leftside'>
                     <h1>Hello</h1>

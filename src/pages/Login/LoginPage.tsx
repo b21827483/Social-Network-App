@@ -1,4 +1,5 @@
 import '../../../styles/Login-Signup.scss'
+import {Link} from "react-router-dom";
 
 function LoginPage() {
     return (
@@ -11,7 +12,11 @@ function LoginPage() {
                         to your personalized account. Whether you're here to reconnect with friends, share your latest
                         adventures, or discover new passions, our platform is your gateway to a vibrant community.
                     </p>
-                    <span>You don't have an account?<button> Sign Up</button></span>
+                    <span>You don't have an account?
+                        <Link to='/signup'>
+                            <button> Sign Up</button>
+                        </Link>
+                    </span>
                 </div>
                 <div className='rightside'>
                     <h1>Login</h1>

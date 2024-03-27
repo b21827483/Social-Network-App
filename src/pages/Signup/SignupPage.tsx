@@ -1,5 +1,6 @@
 import '../../../styles/Login-Signup.scss'
 import background from '../../assets/signup-background.jfif'
+import {Link} from "react-router-dom";
 
 function SignUpPage() {
     return (
@@ -35,7 +36,11 @@ function SignUpPage() {
                         you're here to network professionally, find like-minded individuals, or simply stay connected
                         with loved ones, our platform offers a welcoming space for all.
                     </p>
-                    <span>You already have an account?<button>Login</button></span>
+                    <span>You already have an account?
+                        <Link to='/login'>
+                            <button>Login</button>
+                        </Link>
+                    </span>
                 </div>
             </div>
         </div>

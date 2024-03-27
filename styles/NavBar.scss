@@ -1,0 +1,107 @@
+@mixin respond($breakpoint) {
+  @if($breakpoint == large) {
+    @media (min-width: 900px) { @content }
+  }
+  @if($breakpoint == small)  {
+    @media (max-width: 500px) { @content }
+  }
+}
+
+.navbar-root {
+  position: sticky;
+  top:0;
+  z-index: 100;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3rem;
+  padding: 1rem 0;
+  width: 100vw;
+
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+
+  @include respond(large) {
+    width: 100vw;
+  }
+
+  @include respond(small) {
+    width: 100vw;
+  }
+
+  @include respond(small) {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    margin: 0;
+  }
+
+  .left-navbar {
+    margin: 0 1rem;
+    display: flex;
+    width: 30%;
+    gap: 2rem;
+
+
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+
+      span {
+        color: black;
+      }
+    }
+  }
+
+  .searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0.25rem;
+
+    border: 1px solid black;
+    border-radius: 3px;
+
+    input {
+      padding: 0.25rem;
+      width: 100%;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    @include respond(small) {
+      display: none;
+    }
+  }
+
+  .right-navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 1rem;
+    width: 30%;
+
+    .user {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

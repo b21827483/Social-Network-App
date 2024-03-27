@@ -1,0 +1,63 @@
+$h1-fontsize: 40px;
+$h1-fontfamily: "Sitka Subheading" ;
+$span-fontsize: 30px;
+$span-fontfamily:'Sylfaen' ;
+
+.leftbar {
+
+  position: sticky;
+  top: 7rem;
+  height: calc(100vh - 7rem);
+  margin: 1rem;
+  padding: 0 1rem;
+  flex: 1;
+  border-radius: 5px;
+  background-color: rgba(128, 128, 128, 0.25);
+  box-shadow: 2px 2px 2px grey;
+  width:100%;
+
+  .container {
+
+    h1 {
+      font-size: $h1-fontsize;
+      font-family: $h1-fontfamily;
+    }
+    span {
+      margin-left: 0.5rem;
+      font-size: $span-fontsize;
+      font-family: $span-fontfamily;
+    }
+
+    .social {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid grey;
+
+      .friends {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .groups {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .your-posts {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid grey;
+
+      .images {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .videos {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

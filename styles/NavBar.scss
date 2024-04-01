@@ -8,7 +8,7 @@
 }
 
 .navbar-root {
-  position: sticky;
+  position: fixed;
   top:0;
   z-index: 100;
   background-color: white;
@@ -26,22 +26,18 @@
   }
 
   @include respond(small) {
-    width: 100vw;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #535bf2;
   }
 
-  @include respond(small) {
-    position: absolute;
-    bottom:0;
-    left: 0;
-    margin: 0;
-  }
 
   .left-navbar {
     margin: 0 1rem;
     display: flex;
     width: 30%;
     gap: 2rem;
-
 
     .home {
       display: flex;
@@ -97,10 +93,15 @@
         height: 25px;
         border-radius: 50%;
         object-fit: cover;
+        margin-right: 0.5rem;
       }
 
       span {
         margin-right: 0.5rem;
+
+        @include respond(small) {
+          display: none;
+        }
       }
     }
   }

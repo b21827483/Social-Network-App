@@ -1,57 +1,61 @@
-.rightbar {
+@import 'Layout.scss';
 
-  position: sticky;
-  top: 5.5rem;
-  height: calc(100vh - 6.5rem);
-  display: flex;
-  flex: 1;
+@include change-theme($themes) {
+  .rightbar {
 
-  .container {
+    position: sticky;
+    top: 5.5rem;
+    height: calc(100vh - 6.5rem);
     display: flex;
-    flex-direction: column;
-    margin: 1rem auto;
-    height: 100% ;
+    flex: 1;
+    color: t('text');
 
-    .recent-activities {
-      overflow: scroll;
-      height: 33% ;
-      margin-bottom: 1rem;
-      padding: 0 1rem;
-      background-color: rgba(128, 128, 128, 0.25);
-      border-radius: 5px;
-      box-shadow: -2px 2px 2px grey;
-      width:90%;
+    .container {
+      display: flex;
+      flex-direction: column;
+      margin: 1rem auto;
+      height: 100%;
 
-    }
+      .recent-activities {
+        overflow: scroll;
+        height: 33%;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        background-color: t('bg-secondary');
+        border-radius: 5px;
+        box-shadow: -2px 2px 2px grey;
+        width: 90%;
 
-    .online-friends-container {
-      height: 33% ;
-      overflow: scroll;
-      margin-bottom: 1rem;
-      padding: 0 1rem;
-      background-color: rgba(128, 128, 128, 0.25);
-      border-radius: 5px;
-      box-shadow: -2px 2px 2px grey;
-      width:90%;
-
-      .header {
       }
 
-      .online-friends {
+      .online-friends-container {
+        height: 33%;
+        overflow: scroll;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        background-color: t('bg-secondary');
+        border-radius: 5px;
+        box-shadow: -2px 2px 2px grey;
+        width: 90%;
+
+        .header {
+        }
+
+        .online-friends {
+        }
       }
     }
-  }
 
 
-  .extra {
-    overflow: scroll;
-    height: 33% ;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-    background-color: rgba(128, 128, 128, 0.25);
-    border-radius: 5px;
-    box-shadow: -2px 2px 2px grey;
-    width:90%;
-    overflow: scroll;
+    .extra {
+      overflow: scroll;
+      width: 90%;
+      height: 33%;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      background-color: t('bg-secondary');
+      border-radius: 5px;
+      box-shadow: -2px 2px 2px grey;
+    }
   }
 }

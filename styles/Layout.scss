@@ -1,7 +1,49 @@
-.page {
-  display: flex;
-  width: 100vw;
+$themes: (
+    light: (
+            bg: white,
+            bg-secondary: #F06292 ,
+            text: #3F729B ,
+            text-secondary: #ffde2a,
+            border: black,
+            home: #f5f4f4
+    ),
+    dark: (
+            bg: #312f2f,
+            bg-secondary: #363434,
+            text: white,
+            text-secondary: #e7e6e6,
+            border: white,
+            home: #505050,
+        ),
+);
 
-  .feed {
-    flex: 4}
+@mixin change-theme($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key)
+}
+
+
+@include change-theme($themes) {
+  .page {
+    display: flex;
+    width: 100vw;
+    background: t('home');
+
+    .feed {
+      flex: 4
+    }
+  }
 }

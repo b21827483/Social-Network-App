@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react'
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 
-import './App.css'
+import './App.scss'
 import LoginPage from "./pages/Login/LoginPage";
 import SignUpPage from "./pages/Signup/SignupPage";
 import Layout from "./components/UI/Layout";

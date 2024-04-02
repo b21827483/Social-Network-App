@@ -1,3 +1,5 @@
+@import 'Layout.scss';
+
 @mixin respond($breakpoint) {
   @if($breakpoint == large) {
     @media (min-width: 900px) { @content }
@@ -7,100 +9,102 @@
   }
 }
 
-.navbar-root {
-  position: fixed;
-  top:0;
-  z-index: 100;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 3rem;
-  padding: 1rem 0;
-  width: 100vw;
+@include change-theme($themes) {
 
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-
-  @include respond(large) {
-    width: 100vw;
-  }
-
-  @include respond(small) {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: #535bf2;
-  }
-
-
-  .left-navbar {
-    margin: 0 1rem;
+  .navbar-root {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: t("bg");
+    color: t('text');
     display: flex;
-    width: 30%;
-    gap: 2rem;
-
-    .home {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.5rem;
-
-      span {
-        color: black;
-      }
-    }
-  }
-
-  .searchbar {
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 40%;
-    padding: 0.25rem;
+    min-height: 3rem;
+    padding: 1rem 0;
+    width: 100vw;
 
-    border: 1px solid black;
-    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 
-    input {
-      padding: 0.25rem;
-      width: 100%;
-      border: none;
-
-      &:focus {
-        outline: none;
-      }
+    @include respond(large) {
+      width: 100vw;
     }
 
     @include respond(small) {
-      display: none;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background-color: #535bf2;
     }
-  }
 
-  .right-navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2rem;
-    padding-right: 1rem;
-    width: 30%;
 
-    .user {
+    .left-navbar {
+      margin: 0 1rem;
       display: flex;
-      align-items: center;
+      width: 30%;
+      gap: 2rem;
 
-      img {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 0.5rem;
+      .home {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    .searchbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      padding: 0.25rem;
+
+      border: 1px solid t('text');
+      border-radius: 3px;
+
+      input {
+        padding: 0.25rem;
+        width: 100%;
+        border: none;
+        background-color: t('bg');
+        color: t('text');
+
+        &:focus {
+          outline: none;
+        }
       }
 
-      span {
-        margin-right: 0.5rem;
+      @include respond(small) {
+        display: none;
+      }
+    }
 
-        @include respond(small) {
-          display: none;
+    .right-navbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+      padding-right: 1rem;
+      width: 30%;
+
+      .user {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 0.5rem;
+        }
+
+        span {
+          margin-right: 0.5rem;
+
+          @include respond(small) {
+            display: none;
+          }
         }
       }
     }

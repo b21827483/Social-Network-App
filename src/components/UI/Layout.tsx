@@ -1,4 +1,3 @@
-import {Fragment} from "react";
 import {Outlet} from "react-router-dom";
 import '../../../styles/Layout.scss'
 
@@ -8,7 +7,7 @@ import RightBar from "./RightBar";
 
 function Layout() {
     return (
-        <Fragment>
+        <div className='theme-dark'>
             <NavBar />
             <div className='page'>
                 <LeftBar />
@@ -17,7 +16,7 @@ function Layout() {
                 </div>
                 <RightBar/>
             </div>
-        </Fragment>
+        </div>
     )
 }
 

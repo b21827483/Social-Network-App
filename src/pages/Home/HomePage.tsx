@@ -1,5 +1,7 @@
+import '../../../styles/Home.scss'
+
 function HomePage() {
-    return <div>
+    return <div className='feed'>
         <div>Home Page</div>
         <div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div>
         <div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div>

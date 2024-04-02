@@ -1,63 +1,69 @@
+@import 'Layout.scss';
+
 $h1-fontsize: 30px;
 $h1-fontfamily: "Sitka Subheading" ;
 $span-fontsize: 30px;
 $span-fontfamily:'Sylfaen' ;
 
-.leftbar {
+@include change-theme($themes) {
+  .leftbar {
 
-  position: sticky;
-  overflow: scroll;
-  top: 6.5rem;
-  height: calc(100vh - 7.5rem);
-  margin: 1rem ;
-  padding: 0 1rem;
-  flex: 1;
-  border-radius: 5px;
-  background-color: rgba(128, 128, 128, 0.25);
-  box-shadow: 2px 2px 2px grey;
-  width:100%;
+    position: sticky;
+    overflow: scroll;
+    width: 100%;
+    top: 6.5rem;
+    height: calc(100vh - 7.5rem);
+    margin: 1rem;
+    padding: 0 1rem;
+    flex: 1;
+    background-color: t('bg-secondary');
+    color: t('text');
+    box-shadow: 2px 2px 2px grey;
+    border-radius: 5px;
 
-  .container {
+    .container {
 
-    h1 {
-      font-size: $h1-fontsize;
-      font-family: $h1-fontfamily;
-    }
-    span {
-      margin-left: 0.5rem;
-      font-size: $span-fontsize;
-      font-family: $span-fontfamily;
-    }
-
-    .social {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid grey;
-
-      .friends {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
+      h1 {
+        font-size: $h1-fontsize;
+        font-family: $h1-fontfamily;
       }
 
-      .groups {
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    .your-posts {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid grey;
-
-      .images {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
+      span {
+        margin-left: 0.5rem;
+        font-size: $span-fontsize;
+        font-family: $span-fontfamily;
       }
 
-      .videos {
-        display: flex;
-        align-items: center;
+      .social {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid t('border');
+
+        .friends {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .groups {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .your-posts {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid t('border');
+
+        .images {
+          display: flex;
+          align-items: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .videos {
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }

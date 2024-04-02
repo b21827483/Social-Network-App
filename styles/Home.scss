@@ -1,0 +1,9 @@
+@import 'Layout.scss';
+
+@include change-theme($themes) {
+
+  .feed {
+    background: t('home');
+    color: t('text')
+  }
+}

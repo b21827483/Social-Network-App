@@ -4,10 +4,16 @@ import '../../../styles/Layout.scss'
 import NavBar from "./NavBar";
 import LeftBar from "./LeftBar";
 import RightBar from "./RightBar";
+import {useContext} from "react";
+import {ThemeContext} from "../../context/ThemeContext";
+
 
 function Layout() {
+
+    const themeContext = useContext(ThemeContext);
+
     return (
-        <div className='theme-dark'>
+        <div className={`theme-${themeContext.theme}`}>
             <NavBar />
             <div className='page'>
                 <LeftBar />

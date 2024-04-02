@@ -6,8 +6,13 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SearchIcon from '@mui/icons-material/Search';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import {useContext} from "react";
+import {ThemeContext} from "../../context/ThemeContext";
 
 function NavBar() {
+
+    const themeContext = useContext(ThemeContext);
+
     return (
         <div className='navbar-root'>
             <div className='left-navbar'>
@@ -15,7 +20,7 @@ function NavBar() {
                     <HomeIcon />
                     <span>ZULA</span>
                 </div>
-                <DarkModeIcon />
+                <DarkModeIcon onClick={themeContext.toggleTheme}/>
             </div>
             <div className='searchbar'>
                 <SearchIcon />

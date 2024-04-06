@@ -4,7 +4,7 @@ import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import './App.scss'
 import LoginPage from "./pages/Login/LoginPage";
 import SignUpPage from "./pages/Signup/SignupPage";
-import Layout from "./components/UI/Layout";
+import Layout from "./components/UI/Bars/Layout";
 import HomePage from "./pages/Home/HomePage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 

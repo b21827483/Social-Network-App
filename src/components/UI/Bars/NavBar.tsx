@@ -1,13 +1,13 @@
-import '../../../styles/NavBar.scss'
-import image from '../../assets/pp-not-found.png';
+import '../../../../styles/NavBar.scss'
+import image from '../../../assets/pp-not-found.png';
 
 import HomeIcon from '@mui/icons-material/Home';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SearchIcon from '@mui/icons-material/Search';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import {useContext} from "react";
-import {ThemeContext} from "../../context/ThemeContext";
+import {ThemeContext} from "../../../context/ThemeContext";
 
 function NavBar() {
 
@@ -20,7 +20,8 @@ function NavBar() {
                     <HomeIcon />
                     <span>ZULA</span>
                 </div>
-                <DarkModeIcon onClick={themeContext.toggleTheme}/>
+                {themeContext.theme === 'light' ? <DarkModeIcon onClick={themeContext.toggleTheme} /> :
+                    <WbSunnyIcon onClick={themeContext.toggleTheme}/>}
             </div>
             <div className='searchbar'>
                 <SearchIcon />

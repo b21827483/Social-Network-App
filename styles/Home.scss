@@ -2,8 +2,34 @@
 
 @include change-theme($themes) {
 
-  .feed {
+  .UserFeed {
     background: t('home');
-    color: t('text')
+    color: t('text');
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    padding: 0;
+
+
+    .HomeStories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 15%;
+      margin-left: 1rem  ;
+    }
+
+    .HomePosts {
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
+
+
+
 }

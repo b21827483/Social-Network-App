@@ -1,10 +1,16 @@
 import '../../../styles/Home.scss'
+import Stories from "../../components/Stories/Stories";
+import Posts from "../../components/Posts/Posts";
+
 
 function HomePage() {
-    return <div className='feed'>
-        <div>Home Page</div>
-        <div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div>
-        <div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div><div>Home Page</div>
+    return <div className='UserFeed'>
+        <div className='HomeStories'>
+            <Stories />
+        </div>
+        <div className='HomePosts'>
+            <Posts />
+        </div>
     </div>
 }
 

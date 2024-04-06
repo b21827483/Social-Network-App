@@ -1,22 +1,45 @@
 @import 'Layout.scss';
 
+@mixin respond($breakpoint) {
+  @if (not-max) {
+    @media (max-width: 1160px) {
+      @content
+    }
+  }
+
+  @if (small) {
+    @media (max-width: 500px) {
+      @content
+    }
+  }
+}
+
 @include change-theme($themes) {
   .rightbar {
-
-    position: sticky;
+    width: 15%;
+    position: fixed;
+    right: 0;
     top: 5.5rem;
     height: calc(100vh - 6.5rem);
     display: flex;
     flex: 1;
     color: t('text');
+    margin-right: 2rem;
+
+    @include respond(not-max) {
+      display: none;
+    }
 
     .container {
       display: flex;
       flex-direction: column;
       margin: 1rem auto;
       height: 100%;
+      min-width: 150px;
 
       .recent-activities {
+        display: flex;
+        flex-direction: column;
         overflow: scroll;
         height: 33%;
         margin-bottom: 1rem;
@@ -29,6 +52,8 @@
       }
 
       .online-friends-container {
+        display: flex;
+        flex-direction: column;
         height: 33%;
         overflow: scroll;
         margin-bottom: 1rem;
@@ -39,15 +64,21 @@
         width: 90%;
 
         .header {
+          display: flex;
+          flex-direction: column;
         }
 
         .online-friends {
+          display: flex;
+          flex-direction: column;
         }
       }
     }
 
 
     .extra {
+      display: flex;
+      flex-direction: column;
       overflow: scroll;
       width: 90%;
       height: 33%;

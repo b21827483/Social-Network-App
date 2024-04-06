@@ -1,0 +1,28 @@
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == small){
+    @media (max-width: 500px) {
+      @content
+    }
+  }
+}
+
+.StoryItem {
+
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+
+  @include respond(small) {
+    height: 40px;
+    width: 40px;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+
+  }
+}

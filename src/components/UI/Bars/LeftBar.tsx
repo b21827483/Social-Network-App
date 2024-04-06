@@ -1,4 +1,4 @@
-import '../../../styles/LeftBar.scss'
+import '../../../../styles/LeftBar.scss'
 
 import PeopleIcon from '@mui/icons-material/People';
 import Diversity1Icon from '@mui/icons-material/Diversity1';

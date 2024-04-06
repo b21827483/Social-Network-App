@@ -5,21 +5,34 @@ $h1-fontfamily: "Sitka Subheading" ;
 $span-fontsize: 30px;
 $span-fontfamily:'Sylfaen' ;
 
+@mixin respond($breakpoint) {
+  @if ($breakpoint == small){
+    @media (max-width: 500px) {
+      @content
+    }
+  }
+}
+
 @include change-theme($themes) {
   .leftbar {
-
-    position: sticky;
-    overflow: scroll;
-    width: 100%;
+    width: 15%;
+    position: fixed;
     top: 6.5rem;
+    left: 0;
+    overflow: scroll;
     height: calc(100vh - 7.5rem);
-    margin: 1rem;
+    margin: 0 1rem;
     padding: 0 1rem;
     flex: 1;
+    min-width: 150px;
     background-color: t('bg-secondary');
     color: t('text');
     box-shadow: 2px 2px 2px grey;
     border-radius: 5px;
+
+    @include respond(small) {
+      display: none;
+    }
 
     .container {
 

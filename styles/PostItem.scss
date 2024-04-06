@@ -1,0 +1,73 @@
+.PostItem {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  background-color: grey;
+
+  .User {
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .UserInfo {
+
+      position: relative;
+      display: flex;
+      gap: 0.25rem;
+
+      img {
+        position: absolute;
+        top: 15px;
+        left: -10px;
+
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+      }
+
+      span {
+
+        position: absolute;
+        top: 12px;
+        left: 35px;
+        display: flex;
+        justify-content: flex-start;
+
+      }
+
+      .date {
+        width: 200px;
+        position: absolute;
+        top: 32px;
+        left: 35px;
+        display: flex;
+        align-items: flex-end;
+
+      }
+    }
+
+    .PostOptions {
+      position: absolute;
+      right: -5px;
+    }
+
+  }
+
+  .Content {
+
+    margin-top: 1.5rem;
+    padding: 1rem;
+
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+}

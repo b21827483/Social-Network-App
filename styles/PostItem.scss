@@ -1,73 +1,151 @@
-.PostItem {
+@import "Layout";
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 10px;
-  background-color: grey;
+@include change-theme($themes) {
+  .PostItem {
 
-  .User {
-    position: relative;
-    width: 90%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border-radius: 10px;
+    background-color: t('bg');
 
-    .UserInfo {
-
+    .User {
       position: relative;
+      width: 90%;
       display: flex;
-      gap: 0.25rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
 
-      img {
+      .UserInfo {
+
+        position: relative;
+        display: flex;
+        gap: 0.25rem;
+
+        img {
+          position: absolute;
+          top: 15px;
+          left: 0px;
+
+          border-radius: 50%;
+          height: 40px;
+          width: 40px;
+        }
+
+        span {
+
+          position: absolute;
+          top: 12px;
+          left: 45px;
+          display: flex;
+          justify-content: flex-start;
+
+        }
+
+        .date {
+          width: 200px;
+          position: absolute;
+          top: 32px;
+          left: 45px;
+          display: flex;
+          align-items: flex-end;
+
+        }
+      }
+
+      .PostOptions {
         position: absolute;
         top: 15px;
-        left: -10px;
-
-        border-radius: 50%;
-        height: 40px;
-        width: 40px;
+        right: -15px;
       }
 
-      span {
+    }
 
-        position: absolute;
-        top: 12px;
-        left: 35px;
+    .Content {
+
+      margin-top: 1.5rem;
+      padding: 1rem;
+
+      img {
+        width: 100%;
+        max-height: 500px;
+        border-radius: 5px;
+      }
+    }
+
+    .Interactions {
+      width: 35%;
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+
+      .icons {
         display: flex;
+        align-items: center;
         justify-content: flex-start;
+        gap: 1rem;
+        min-width: 175px;
 
-      }
+        .like-icon  {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
 
-      .date {
-        width: 200px;
-        position: absolute;
-        top: 32px;
-        left: 35px;
-        display: flex;
-        align-items: flex-end;
+          svg {
+            &:hover {
+              fill: #F06292;
+            }
+          }
+        }
 
+        .comment-icon {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          svg {
+            &:hover {
+              fill: #505050;
+            }
+          }
+        }
       }
     }
 
-    .PostOptions {
-      position: absolute;
-      right: -5px;
-    }
+    .MakeComment {
 
-  }
+      display: flex;
+      align-items: center;
 
-  .Content {
+      margin: 1rem 0 1rem 1rem;
+      gap: 1rem;
+      width: 90%;
 
-    margin-top: 1.5rem;
-    padding: 1rem;
 
-    img {
-      width: 100%;
-      border-radius: 5px;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+
+      .comment-area {
+        width: 80%;
+        padding: 0.75rem;
+        resize: none;
+        font-size: 15px;
+        border-radius: 5px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .send-comment-icon {
+        cursor: pointer;
+      }
     }
   }
 }

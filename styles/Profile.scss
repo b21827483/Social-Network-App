@@ -1,0 +1,98 @@
+@import "Layout";
+
+@include change-theme($themes) {
+
+  .Profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: t('bg');
+    border-radius: 10px;
+
+    .Images {
+
+      position: relative;
+
+      .background {
+        border-radius: 10px;
+        width: 650px;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .pp {
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        left: 0;
+        right: 0;
+        bottom: -15%;
+        margin: auto;
+        object-fit: cover;
+      }
+    }
+
+    .ProfileContainer {
+      display: flex;
+      width: 90%;
+      min-height: 200px;
+
+      .UserInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .OtherSocialMedias {
+          display: flex;
+          flex: 1;
+          gap: 0.5rem;
+
+          a {
+            cursor: pointer;
+          }
+
+          svg {
+            fill: t('text')
+          }
+        }
+      }
+
+      .About {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .Name {
+          color: t('text');
+        }
+
+        .FollowButton {
+          padding: 0.25rem;
+          background: t('bg');
+          color: t('text');
+          border: 1px solid t('text');
+          border-radius: 5px;
+        }
+      }
+
+      .Actions {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        gap: 0.5rem;
+
+        svg {
+          fill: t('text');
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

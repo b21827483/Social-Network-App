@@ -12,10 +12,13 @@ import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 function PostItem({name, desc, img}) {
 
-    const [commentToggle, setCommentToggle] = useState<Boolean>(false);
+    const [commentToggle, setCommentToggle] = useState<String>('slide-in');
+    const [commentActive, setCommentActive] = useState<boolean>(false);
+
 
     function openComments() {
-        setCommentToggle(prevState => (!prevState))
+        setCommentActive(prevState => (!prevState));
+        setCommentToggle(prevState => (prevState === 'slide-out' ? 'slide-in' : 'slide-out'));
     }
 
     return <div className='PostItem'>
@@ -44,8 +47,8 @@ function PostItem({name, desc, img}) {
                 </div>
             </div>
         </div>
-        {commentToggle &&
-            <div>
+        {commentActive &&
+            <div id='Comments' className={commentToggle}>
                 <div className='MakeComment'>
                     <img src={pp}/>
                     <textarea className='comment-area' placeholder='Write a comment' rows={2}/>

@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    height: 100%;
+    max-height: 2000px;
     border-radius: 10px;
     background-color: t('bg');
 
@@ -58,8 +60,8 @@
 
       .PostOptions {
         position: absolute;
-        top: 15px;
-        right: -15px;
+        top: 20px;
+        right: 0;
       }
 
     }
@@ -114,38 +116,74 @@
       }
     }
 
-    .MakeComment {
+    #Comments {
 
-      display: flex;
-      align-items: center;
+      transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
 
-      margin: 1rem 0 1rem 1rem;
-      gap: 1rem;
-      width: 90%;
+      .MakeComment {
 
+        display: flex;
+        align-items: center;
 
-      img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-      }
+        margin: 1rem 0 1rem 1rem;
+        gap: 1rem;
+        width: 90%;
 
 
-      .comment-area {
-        width: 80%;
-        padding: 0.75rem;
-        resize: none;
-        font-size: 15px;
-        border-radius: 5px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
 
-        &:focus {
-          outline: none;
+
+        .comment-area {
+          width: 80%;
+          padding: 0.75rem;
+          resize: none;
+          font-size: 15px;
+          border-radius: 5px;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .send-comment-icon {
+          cursor: pointer;
         }
       }
-
-      .send-comment-icon {
-        cursor: pointer;
-      }
     }
+
+    .slide-in {
+      animation: slide-in 0.5s forwards;
+      -webkit-animation: slide-in 0.5s forwards;
+    }
+
+    .slide-out {
+      animation: slide-out 0.5s forwards;
+      -webkit-animation: slide-out 0.5s forwards;
+    }
+
+    @keyframes slide-in {
+      100% { transform: translateY(0%); }
+    }
+
+    @-webkit-keyframes slide-in {
+      100% { -webkit-transform: translateY(0%); }
+    }
+
+    @keyframes slide-out {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(0%); }
+    }
+
+    @-webkit-keyframes slide-out {
+      0% { -webkit-transform: translateY(100%); }
+      100% { -webkit-transform: translateY(0%); }
+    }
+
+
   }
 }

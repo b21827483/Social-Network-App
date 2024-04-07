@@ -13,6 +13,7 @@ const DUMMY_COMMENTS = [
     userPP: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQv32zp_GbhJEkrpQkotDesieLwPU3vYLExssmqEpUXQ&s',
     comment: 'Calculating the odds of winning in Nen combat just shows how you\'re missing the point. You never know what your adversary\'s ability is. A slight hesitation can cause a fatal turnabout. The outcome is always a fluctuation. Having more or less aura isn\'t much of an excuse. That\'s the essence of Nen combat!',
     },
+
 ];
 
 function Comments() {

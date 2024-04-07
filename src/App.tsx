@@ -26,7 +26,7 @@ function App() {
             element: <ProtectedRouter><Layout /></ProtectedRouter>,
             children: [
                 {path: '/', element: <HomePage />},
-                {path: '/profile/:id', element: <ProfilePage />}
+                {path: '/profile/', element: <ProfilePage />}
             ]
         },
         {

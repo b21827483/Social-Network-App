@@ -11,7 +11,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+@mixin respond($breakpoint) {
+  @if($breakpoint == large) {
+    @media (min-width: 900px) { @content }
+  }
+  @if($breakpoint == small)  {
+    @media (max-width: 500px) { @content }
+  }
+}
 
 a {
   font-weight: 500;

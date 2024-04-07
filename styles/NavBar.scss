@@ -1,14 +1,5 @@
 @import 'Layout.scss';
 
-@mixin respond($breakpoint) {
-  @if($breakpoint == large) {
-    @media (min-width: 900px) { @content }
-  }
-  @if($breakpoint == small)  {
-    @media (max-width: 500px) { @content }
-  }
-}
-
 @include change-theme($themes) {
 
   .navbar-root {
@@ -31,17 +22,14 @@
     }
 
     @include respond(small) {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background-color: #535bf2;
     }
 
 
     .left-navbar {
-      margin: 0 1rem;
       display: flex;
+      align-items: center;
       width: 30%;
+      margin-left: 2rem;
       gap: 2rem;
 
       .home {
@@ -86,6 +74,10 @@
       gap: 2rem;
       padding-right: 1rem;
       width: 30%;
+
+      @include respond(small) {
+        justify-content: flex-start;
+      }
 
       .user {
         display: flex;

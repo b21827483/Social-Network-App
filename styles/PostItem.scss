@@ -62,8 +62,12 @@
         position: absolute;
         top: 20px;
         right: 0;
-      }
 
+        @include respond(small) {
+          top: 0;
+          right: 20px;
+        }
+      }
     }
 
     .Content {
@@ -89,6 +93,12 @@
         justify-content: flex-start;
         gap: 1rem;
         min-width: 175px;
+
+        @include respond(small) {
+          span {
+            display: none;
+          }
+        }
 
         .like-icon  {
           display: flex;

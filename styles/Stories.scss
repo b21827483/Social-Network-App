@@ -5,30 +5,22 @@
   .Stories {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
     background-color: t('bg');
     border-radius: 10px;
 
-
     .ActiveStories {
-      display: flex;
-      height: 100%;
 
-    }
-
-    ul {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       justify-content: center;
       align-items: center;
-      margin: 1rem 0;
       padding: 0;
       list-style: none;
       gap: 1rem;
@@ -40,16 +32,16 @@
       }
     }
 
-    button {
-      z-index: 1;
-      border-radius: 50%;
-      font-size: 15px;
-      transition: all 0.5s ease;
+    .StoryActions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
 
-      &:hover {
-        background-color: #63deea;
+      button {
+        border-radius: 50%;
+        transition: all 0.5s ease;
       }
-
     }
   }
 }

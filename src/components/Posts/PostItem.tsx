@@ -38,7 +38,7 @@ function PostItem({name, desc, img}) {
         <div className='Interactions'>
             <div className='icons'>
                 <div className='like-icon'>
-                    <FavoriteBorderIcon ></FavoriteBorderIcon>
+                    <FavoriteBorderIcon />
                     <span>Like</span>
                 </div>
                 <div className='comment-icon'>

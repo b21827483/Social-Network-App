@@ -12,13 +12,20 @@
     margin: 1rem;
     padding: 0;
 
+    @include respond(small) {
+      margin-top: 2rem;
+      width: 80%;
+    }
+
 
     .HomeStories {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
       width: 80%;
-      height: 15%;
+      height: 20%;
     }
 
     .HomePosts {
@@ -28,7 +35,4 @@
       align-items: center;
     }
   }
-
-
-
 }

@@ -36,11 +36,13 @@ function Stories() {
 
     return (
         <div className='Stories'>
-            <button className='BackButton' onClick={backStories}><ArrowBackIosIcon /></button>
             <ul className='ActiveStories'>
                 {DUMMY_STORIES[index].map((story) => ((<li key={story.id}><StoryItem name={story.name} image={story.img} /></li>)))}
             </ul>
-            <button className='NextButton' onClick={nextStories}><ArrowForwardIosIcon /></button>
+            <div className='StoryActions'>
+                <button className='BackButton' onClick={backStories}><ArrowBackIosIcon /></button>
+                <button className='NextButton' onClick={nextStories}><ArrowForwardIosIcon /></button>
+            </div>
 
         </div>
     )

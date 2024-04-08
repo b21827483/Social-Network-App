@@ -10,10 +10,7 @@ function SignUpPage() {
                     <h1>Sign Up</h1>
                     <form>
                         <div className='input-field'>
-                            <input id='name' type='text' placeholder='Name'/>
-                        </div>
-                        <div className='input-field'>
-                            <input id='surname' type='text' placeholder='Surname'/>
+                            <input id='name' type='text' placeholder='Name - Surname'/>
                         </div>
                         <div className='input-field'>
                             <input id='email' type='email' placeholder='Email'/>

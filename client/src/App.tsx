@@ -1,7 +1,9 @@
-import React, {Fragment, useState} from 'react'
+import React, {Fragment, useContext} from 'react'
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 
 import './App.scss'
+import {AuthContext} from "./context/AuthContext";
+
 import LoginPage from "./pages/Login/LoginPage";
 import SignUpPage from "./pages/Signup/SignupPage";
 import Layout from "./components/UI/Bars/Layout";
@@ -10,10 +12,10 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 
 function App() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const {currentUser} = useContext(AuthContext);
 
-    const ProtectedRouter = ({children}) => {
-        if (!isLoggedIn) {
+    const ProtectedRoute = ({children}) => {
+        if (!currentUser) {
             return <Navigate to='login' />;
         }
 
@@ -23,7 +25,7 @@ function App() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <ProtectedRouter><Layout /></ProtectedRouter>,
+            element: <ProtectedRoute><Layout /></ProtectedRoute>,
             children: [
                 {path: '/', element: <HomePage />},
                 {path: '/profile/', element: <ProfilePage />}

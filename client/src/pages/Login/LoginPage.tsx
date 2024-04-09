@@ -1,7 +1,37 @@
+import {useContext, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
+
 import '../../../styles/Login-Signup.scss'
-import {Link} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";0
 
 function LoginPage() {
+    
+    const {login} = useContext(AuthContext);
+
+    const [loginCredentials, setLoginCredentials] = useState({
+        username: '',
+        password: ''
+    });
+    const [err, setErr] = useState<String>(null);
+
+    const navigator = useNavigate();
+
+    function loginInputHandler(e) {
+        setLoginCredentials(prevState => ({...prevState, [e.target.name]: e.target.value}))
+    }
+
+    async function loginFormHandler(e) {
+        e.preventDefault();
+
+        try {
+            await login(loginCredentials);
+            navigator('/');
+        }
+        catch (e) {
+            setErr(e.response.data)
+        }
+    }
+
     return (
         <div className='auth-container'>
             <div className='card'>
@@ -22,13 +52,14 @@ function LoginPage() {
                     <h1>Login</h1>
                     <form>
                         <div className='input-field'>
-                            <input id='username' placeholder='Username'/>
+                            <input id='username' type='text' name='username' placeholder='Username' onChange={loginInputHandler}/>
                         </div>
                         <div className='input-field'>
-                            <input id='password' type='password' placeholder='Password'/>
+                            <input id='password' type='password' name='password' placeholder='Password' onChange={loginInputHandler}/>
                         </div>
+                        {err && err}
                         <div className='actions'>
-                            <button>Login</button>
+                            <button onClick={loginFormHandler}>Login</button>
                         </div>
                     </form>
                 </div>

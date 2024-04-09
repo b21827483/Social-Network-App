@@ -10,11 +10,21 @@ export const signup = (req,res) => {
 
     const q = "SELECT * FROM users WHERE username = ?";
     db.query(q, [username], (error, data) => {
+
         if (error) {
             return res.status(500).json(error);
         }
+
+        if (!name || name.trim().length === 0 ||
+            !email || email.trim().length === 0 ||
+            !username || username.trim().length === 0 ||
+            !password || password.trim().length === 0) {
+
+            return res.status(400).json("Invalid input.")
+        }
+
         if (data.length) {
-            return res.status(409).json('User already exists.')
+            return res.status(409).json('User already exists.');
         }
 
         const hashedPassword = hashPassword(password);
@@ -40,6 +50,13 @@ export const login = (req,res) => {
         if (error) {
             return res.status(500).json(error);
         }
+
+        if (!username || username.trim().length === 0 ||
+            !password || password.trim().length === 0) {
+
+            return res.status(400).json("Invalid input.")
+        }
+
         if (data.length === 0) {
             return res.status(404).json('User not found.')
         }

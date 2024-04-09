@@ -1,8 +1,38 @@
+import {useState} from "react";
+
+import axios from "axios";
 import '../../../styles/Login-Signup.scss'
 import background from '../../assets/signup-background.jfif'
 import {Link} from "react-router-dom";
 
+
 function SignUpPage() {
+
+    const [credentials, setCredentials] = useState({
+        name: "",
+        email: "",
+        username: "",
+        password: "",
+    });
+    const [err, setErr] = useState<String>(null);
+
+    function credentialHandler(event) {
+        setCredentials(prevState => ({...prevState, [event.target.name]: event.target.value}))
+    }
+
+    async function signupFormHandler(event) {
+        event.preventDefault();
+        console.log(credentials)
+
+        try {
+            await axios.post('http://localhost:8800/api/auth/signup', credentials);
+        }
+        catch (e) {
+            setErr(e.response.data);
+        }
+
+    }
+
     return (
         <div className='auth-container' style={{background: "cadetblue"}}>
             <div className='card'>
@@ -10,19 +40,20 @@ function SignUpPage() {
                     <h1>Sign Up</h1>
                     <form>
                         <div className='input-field'>
-                            <input id='name' type='text' placeholder='Name - Surname'/>
+                            <input id='name' type='text' name='name' placeholder='Name - Surname' onChange={credentialHandler}/>
                         </div>
                         <div className='input-field'>
-                            <input id='email' type='email' placeholder='Email'/>
+                            <input id='email' type='email' name='email' placeholder='Email' onChange={credentialHandler}/>
                         </div>
                         <div className='input-field'>
-                            <input id='username' placeholder='Username'/>
+                            <input id='username' placeholder='Username' name='username' onChange={credentialHandler}/>
                         </div>
                         <div className='input-field'>
-                            <input id='password' type='password' placeholder='Password'/>
+                            <input id='password' type='password' name='password' placeholder='Password' onChange={credentialHandler}/>
                         </div>
+                        {err && err}
                         <div className='actions'>
-                            <button>Sign Up</button>
+                            <button onClick={signupFormHandler}>Sign Up</button>
                         </div>
                     </form>
                 </div>

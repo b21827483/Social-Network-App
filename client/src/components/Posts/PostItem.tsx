@@ -9,12 +9,12 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import axios from "axios";
 
-function PostItem({name, desc, img}) {
+function PostItem({name, desc, postImg}) {
 
     const [commentToggle, setCommentToggle] = useState<String>('slide-in');
     const [commentActive, setCommentActive] = useState<boolean>(false);
-
 
     function openComments() {
         setCommentActive(prevState => (!prevState));
@@ -32,8 +32,7 @@ function PostItem({name, desc, img}) {
         </div>
         <div className='Content'>
             <p>{desc}</p>
-            <img src={img} />
-
+            <img src={"http://localhost:8800/images/" + postImg} alt='img'/>
         </div>
         <div className='Interactions'>
             <div className='icons'>

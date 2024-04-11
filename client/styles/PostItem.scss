@@ -44,6 +44,7 @@
           left: 45px;
           display: flex;
           justify-content: flex-start;
+          min-width: 200px;
 
         }
 
@@ -72,8 +73,17 @@
 
     .Content {
 
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 93%;
       margin-top: 1.5rem;
       padding: 1rem;
+
+      @include respond(small) {
+        width: 85%;
+      }
 
       img {
         width: 100%;

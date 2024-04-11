@@ -29,7 +29,6 @@ function Posts() {
             return await axios.get('http://localhost:8800/api/posts', {
                 withCredentials: true,
             }).then(function (respond) {
-                console.log(respond.data)
                 setPosts(respond.data);
             }).catch(function (err) {
                 setErr(err.message)
@@ -41,7 +40,7 @@ function Posts() {
 
     return <div className='Posts'>
         <PostCreate />
-        {posts.map(post => (<PostItem key={post.id} name={post.name} desc={post.desc} postImg={post.postImage} />))}
+        {posts.map(post => (<PostItem key={post.id} postId={post.id} name={post.name} desc={post.desc} postImg={post.postImage} createdAt={post.createdAt} />))}
         {isLoading && 'Loading...'}
         {err && err}
     </div>

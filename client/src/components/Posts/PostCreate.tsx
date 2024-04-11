@@ -14,6 +14,7 @@ function PostCreate() {
     async function uploadImageHandler() {
         const formData = new FormData();
         formData.append('image_file', postImage);
+        console.log(formData.get('image_file'))
         const res = await axios.post("http://localhost:8800/api/image-uploads", formData);
         return res.data;
     }
@@ -34,7 +35,6 @@ function PostCreate() {
         catch (e) {
             setErr(e);
         }
-
     }
 
     return (

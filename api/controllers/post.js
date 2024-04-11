@@ -17,8 +17,8 @@ export const getPosts = (req, res) => {
       if (err) {
           return res.status(403).json("Invalid token.");
       }
-      const q = `SELECT posts.*, users.id, name, pPicture FROM posts JOIN users ON (users.id = posts.userId)
-             LEFT JOIN relationships ON (posts.userId = relationships.followedUserId) WHERE relationships.followerUserId = ? OR users.id = ?
+      const q = `SELECT posts.*, name, pPicture FROM posts JOIN users ON (users.id = posts.userId)
+             LEFT JOIN relationships ON (posts.userId = relationships.followedUserId) WHERE relationships.followerUserId = ? OR posts.userId = ?
              ORDER BY posts.createdAt DESC`;
 
       db.query(q, [tokenData.id, tokenData.id] ,(err, data) => {
@@ -51,8 +51,4 @@ export const addPost = (req, res) => {
             return res.status(200).json("Post creation has been successful.");
         })
     })
-}
-
-export const getPostImage = (req, res) => {
-
 }

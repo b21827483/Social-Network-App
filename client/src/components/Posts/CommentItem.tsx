@@ -10,7 +10,7 @@ function CommentItem({comment, name, pp, createdAt}) {
                 <img src={pp} alt={name}/>
                 <span>{name}</span>
                 <span>&#8226;</span>
-                <span>{moment(createdAt, "MMMM Do YYYY, h:mm:ss").fromNow()}</span>
+                <span>{moment(createdAt, "MMMM Do YYYY, hh:mm:ss").fromNow()}</span>
             </div>
             <p>{comment}</p>
         </div>

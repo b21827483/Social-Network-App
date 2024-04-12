@@ -19,7 +19,6 @@ export const getComments = (req, res) => {
 }
 
 export const addComment = (req, res) => {
-    console.log(req.body)
     const token = req.cookies.access_token;
     if (!token) {
         return res.status(401).json("Unauthenticated user.");

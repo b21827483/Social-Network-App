@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
 import '../../../styles/Login-Signup.scss'
-import {AuthContext} from "../../context/AuthContext";0
+import {AuthContext} from "../../context/AuthContext";
 
 function LoginPage() {
     

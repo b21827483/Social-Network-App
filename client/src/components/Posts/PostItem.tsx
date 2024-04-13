@@ -27,7 +27,6 @@ function PostItem({postId, name, desc, postImg, createdAt}) {
 
     const [commentToggle, setCommentToggle] = useState<String>('slide-in');
     const [commentActive, setCommentActive] = useState<boolean>(false);
-    const [likeToggle, setLikeToggle] = useState<boolean>();
     const [like, setLike] = useState<Like>({
         liked: false,
         count: 0,

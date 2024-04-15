@@ -5,18 +5,18 @@
   .UserFeed {
     background: t('home');
     color: t('text');
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 4;
     margin: 1rem;
     padding: 0;
 
     @include respond(small) {
       margin-top: 2rem;
-      width: 80%;
+      width: 100%;
     }
-
 
     .HomeStories {
       display: flex;

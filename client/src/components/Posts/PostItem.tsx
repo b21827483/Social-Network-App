@@ -85,8 +85,6 @@ function PostItem({postId, name, desc, postImg, pPicture, createdAt}) {
         })
     }
 
-    console.log(err)
-
     return <div className='PostItem'>
         <div className='User'>
             <div className='UserInfo'>

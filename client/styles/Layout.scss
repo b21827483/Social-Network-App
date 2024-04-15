@@ -43,6 +43,12 @@ $themes: (
       @content
     }
   }
+
+  @if ($breakpoint == not-max) {
+    @media (max-width: 1160px) {
+      @content
+    }
+  }
 }
 
 @include change-theme($themes) {
@@ -54,8 +60,47 @@ $themes: (
     margin-top: 5rem;
     background: t('home');
 
-    .feed {
+    .LEFTBAR {
+      display: flex;
+      justify-content: center;
+      width: 20%;
 
+      @include respond(small) {
+        display: none;
+      }
+
+      @include respond(not-max) {
+        width: 25%;
+      }
+    }
+
+    .HOME {
+      display: flex;
+      justify-content: center;
+      width: 60%;
+
+      @include respond(small) {
+        margin: 0.5rem;
+        width: 100%;
+      }
+
+      @include respond(not-max) {
+        width: 75%;
+      }
+    }
+
+    .RIGHTBAR {
+      display: flex;
+      justify-content: center;
+      width:20%;
+
+      @include respond(small) {
+        display: none;
+      }
+
+      @include respond(not-max) {
+        display: none;
+      }
     }
   }
 }

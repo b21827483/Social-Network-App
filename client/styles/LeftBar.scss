@@ -5,20 +5,10 @@ $h1-fontfamily: "Sitka Subheading" ;
 $span-fontsize: 30px;
 $span-fontfamily:'Sylfaen' ;
 
-@mixin respond($breakpoint) {
-  @if ($breakpoint == small){
-    @media (max-width: 500px) {
-      @content
-    }
-  }
-}
-
 @include change-theme($themes) {
   .leftbar {
-    width: 15%;
-    position: fixed;
+    position: sticky;
     top: 6.5rem;
-    left: 0;
     overflow: scroll;
     height: calc(100vh - 7.5rem);
     margin: 0 1rem;

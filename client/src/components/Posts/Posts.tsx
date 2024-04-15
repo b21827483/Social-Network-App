@@ -2,12 +2,11 @@ import {useEffect, useState} from "react";
 
 import axios from "axios";
 
-import pp from '../../assets/pp-not-found.png'
 import '../../../styles/Posts.scss';
 import PostItem from './PostItem';
+import PostCreate from "./PostCreate";
 
 import ImageIcon from '@mui/icons-material/Image';
-import PostCreate from "./PostCreate";
 
 interface Post {
     id: number,
@@ -40,7 +39,7 @@ function Posts() {
 
     return <div className='Posts'>
         <PostCreate />
-        {posts.map(post => (<PostItem key={post.id} postId={post.id} name={post.name} desc={post.desc} postImg={post.postImage} createdAt={post.createdAt} />))}
+        {posts.map(post => (<PostItem key={post.id} postId={post.id} name={post.name} desc={post.desc} postImg={post.postImage} pPicture={post.pPicture} createdAt={post.createdAt} />))}
         {isLoading && 'Loading...'}
         {err && err}
     </div>

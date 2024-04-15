@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import axios from "axios";
 import moment from 'moment';
 
 import '../../../styles/PostItem.scss';
-import pp from '../../assets/pp-not-found.png'
 import Comments from "./Comments";
+import {AuthContext} from "../../context/AuthContext";
 
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -23,7 +23,9 @@ type Like = {
     count: number,
 }
 
-function PostItem({postId, name, desc, postImg, createdAt}) {
+function PostItem({postId, name, desc, postImg, pPicture, createdAt}) {
+
+    const {currentUser} = useContext(AuthContext);
 
     const [commentToggle, setCommentToggle] = useState<String>('slide-in');
     const [commentActive, setCommentActive] = useState<boolean>(false);
@@ -61,9 +63,9 @@ function PostItem({postId, name, desc, postImg, createdAt}) {
             withCredentials: true,
         }).then(function (response) {
             setComment("");
-            setErr(null)
+            setErr(prevState => ({...prevState, postError: null}))
         }).catch(function (e) {
-            setErr(e);
+            setErr(prevState => ({...prevState, postError: e.message}));
         })
     }
 
@@ -83,10 +85,12 @@ function PostItem({postId, name, desc, postImg, createdAt}) {
         })
     }
 
+    console.log(err)
+
     return <div className='PostItem'>
         <div className='User'>
             <div className='UserInfo'>
-                <img src={pp}/>
+                <img src={`http://localhost:8800/images/${pPicture}`}/>
                 <span className='user-name'>{name}</span>
                 <span className='date'>{moment(createdAt, "MMMM Do YYYY, hh:mm:ss").fromNow()}</span>
             </div>
@@ -112,13 +116,13 @@ function PostItem({postId, name, desc, postImg, createdAt}) {
         {commentActive &&
             <div id='Comments' className={commentToggle}>
                 <div className='MakeComment'>
-                    <img src={pp}/>
+                    <img src={`http://localhost:8800/images/${currentUser.pPicture}`}/>
                     <textarea className='comment-area' placeholder='Write a comment' rows={2}
                               value={comment} onChange={(e) => {setComment(e.target.value)}} required={true}/>
                     <SendOutlinedIcon className='send-comment-icon' onClick={addComment}/>
                 </div>
-                {err.postError && err.postError}
-                <Comments postId={postId} />
+                {err.postError !== null && err.postError}
+                {err.postError === null && <Comments postId={postId} />}
             </div>}
     </div>
 }

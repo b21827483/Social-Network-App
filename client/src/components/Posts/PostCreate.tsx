@@ -1,8 +1,11 @@
 import {useContext, useState} from "react";
 
-import ImageIcon from "@mui/icons-material/Image";
-import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
+
+import {AuthContext} from "../../context/AuthContext";
+import {uploadImageHandler} from "../../utils/ImageUploadUtils";
+
+import ImageIcon from "@mui/icons-material/Image";
 
 function PostCreate() {
 
@@ -11,20 +14,12 @@ function PostCreate() {
     const [postImage, setPostImage] = useState<File>(null);
     const [err, setErr] = useState(null);
 
-    async function uploadImageHandler() {
-        const formData = new FormData();
-        formData.append('image_file', postImage);
-        console.log(formData.get('image_file'))
-        const res = await axios.post("http://localhost:8800/api/image-uploads", formData);
-        return res.data;
-    }
-
     async function createPostHandler(event) {
         event.preventDefault();
         try {
             let imageFileName;
             if (postImage) {
-                imageFileName = await uploadImageHandler();
+                imageFileName = await uploadImageHandler(postImage);
             }
             await axios.post("http://localhost:8800/api/posts", {desc, imageFileName}, {
                 withCredentials: true,
@@ -40,7 +35,7 @@ function PostCreate() {
     return (
         <div className='AddPost'>
             <div className='currentUserInfo'>
-                <img src={currentUser.pPicture}/>
+                <img src={`http://localhost:8800/images/${currentUser.pPicture}`}/>
                 <textarea className='postArea' type='text' placeholder='Share some posts' rows={4} value={desc}
                           onChange={(e) => {setDesc(e.target.value)}}/>
             </div>

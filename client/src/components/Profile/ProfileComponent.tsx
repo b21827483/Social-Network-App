@@ -3,13 +3,14 @@ import {useLocation} from "react-router-dom";
 import axios from "axios";
 
 import '../../../styles/Profile.scss';
+import UpdateProfile from "../../pages/Profile/UpdateProfile";
+import {AuthContext} from "../../context/AuthContext";
 
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import {AuthContext} from "../../context/AuthContext";
 
 type User = {
     id: number | null,
@@ -34,6 +35,7 @@ function ProfileComponent() {
         userError: null,
         followError: null
     });
+    const [isUpdateProfile, setIsUpdateProfile] = useState<boolean>(false);
 
     const userId = parseInt(useLocation().pathname.split('/')[2]);
 
@@ -111,9 +113,10 @@ function ProfileComponent() {
         {err.userError && err.userError}
         {pass && <div className='Profile'>
             <div className='Images'>
-                <img className='background'
-                     src = {`http://localhost:8800/images/${user.bgPicture}`}/>
-                <img className='pp' src={`http://localhost:8800/images/${user.pPicture}`}/>
+                <img className='ProfileBackground' src = {`http://localhost:8800/images/${user.bgPicture}`}/>
+                <div className='ProfilePicture' >
+                    <img src={`http://localhost:8800/images/${user.pPicture}`}/>
+                </div>
             </div>
             <div className='ProfileContainer'>
                 <div className='UserInfo'>
@@ -131,7 +134,7 @@ function ProfileComponent() {
                     <div className='About'>
                         <h2 className='Name'>{user.name}</h2>
                         {err.followError && err.followError}
-                        {err.followError === null && currentUser.id === userId && !isFollowing ? <button className='UpdateProfileButton'>Update Profile</button> :
+                        {err.followError === null && currentUser.id === userId && !isFollowing ? <button className='UpdateProfileButton' onClick={() => {setIsUpdateProfile(true)}}>Update Profile</button> :
                             isFollowing ? <button className='FollowButton' onClick={deleteFollowHandler}>Unfollow</button> :
                                 <button className='FollowButton' onClick={addFollowHandler}>Follow</button>}
                     </div>
@@ -143,6 +146,7 @@ function ProfileComponent() {
             </div>
         </div>
         }
+        {isUpdateProfile && <UpdateProfile setIsOpen={setIsUpdateProfile} userId={userId}/>}
     </Fragment>
 }
 

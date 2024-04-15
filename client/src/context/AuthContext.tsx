@@ -18,11 +18,15 @@ export const AuthContextProvider = (props) => {
         setCurrentUser(response.data);
     }
 
+    function updateCredentials(profileImageFile: string | null, bgImageFile: string | null) {
+        setCurrentUser(prevState => ({...prevState, pPicture: profileImageFile, bgPicture: bgImageFile}));
+    }
+
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(currentUser))
     }, [currentUser]);
 
-    return <AuthContext.Provider value={{currentUser, login}}>
+    return <AuthContext.Provider value={{currentUser, login, updateCredentials}}>
         {props.children}
     </AuthContext.Provider>
 }

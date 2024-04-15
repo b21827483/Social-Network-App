@@ -4,6 +4,6 @@ import {imageUpload as storage} from "../storage.js";
 
 const router = express.Router();
 
-router.post('/', storage.single('image_file'),uploadImage);
+router.post('/', storage.single("image_file"), uploadImage);
 
 export default router;
